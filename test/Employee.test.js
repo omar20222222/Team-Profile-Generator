@@ -1,10 +1,12 @@
+const Employee = require("../Lib/Employee");
+
 describe("Getters", () => {
   const name = " Abdurahman Ahmed";
   const id = 220;
   const email = "Abdurahman.ahmed@hotmail.com";
   const role = "Supervisor";
 
-  const testEmployee = new Employee(name, id, email);
+  const testEmployee = new Employee(name, id, email, role);
 
   it("Should return the Employee id when requested", () => {
     expect(testEmployee.getId()).toBe(id);
