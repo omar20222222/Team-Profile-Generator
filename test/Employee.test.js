@@ -6,10 +6,6 @@ describe("Getters", () => {
 
   const testEmployee = new Employee(name, id, email);
 
-  it("Should return the Employee name when requested", () => {
-    expect(testEmployee.getName()).toBe(name);
-  });
-
   it("Should return the Employee id when requested", () => {
     expect(testEmployee.getId()).toBe(id);
   });
@@ -18,9 +14,11 @@ describe("Getters", () => {
     expect(testEmployee.getEmail()).toBe(email);
   });
 
+  it("Should return the Employee name when requested", () => {
+    expect(testEmployee.getName()).toBe(name);
+  });
+
   it("Should return the Employee role when requested", () => {
     expect(testEmployee.getRole()).toBe(role);
-
-    const Employee = require("./Supervisor.js");
   });
 });
