@@ -4,10 +4,11 @@
   "description": "",
   "main": "app.js",
   "directories": {
-    "test": "test"
+    "test": "test",
+    "start": "node app.js"
   },
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node app.js",
     "test": "jest --verbose --coverage",
     "test:watch": "jest -w --verbose"
   },
@@ -23,7 +24,7 @@
   },
   "homepage": "https://github.com/omar20222222/Team-Profile-Generator#readme",
   "dependencies": {
-    "inquirer": "^9.1.4"
+    "inquirer": "^8.2.5"
   },
   "devDependencies": {
     "@types/jest": "^29.2.3",

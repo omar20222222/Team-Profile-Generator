@@ -1,4 +1,4 @@
-const Employee = require("../Lib/Employee");
+const Employee = require("../scr/Lib/Employee");
 
 describe("Getters", () => {
   const name = " Abdurahman Ahmed";
