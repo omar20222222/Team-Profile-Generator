@@ -50,10 +50,15 @@ const addAnotherEmployee = () => {
 // empty employees array
 const buildTeam = () => {
   console.log(myEmployeesArray);
-  //const html = generateHTML(myEmployeesArray);
-  //   writeToFile(html, outputPath);
-  //fs.writeFile();
+
+  if (!fs.existsSync(OUTPUT_DIR)) {
+    fs.mkdirSync(OUTPUT_DIR);
+  }
+  const html = generateHTML(myEmployeesArray);
+  console.log(html);
+  fs.writeFileSync(outputPath, generateHTML(myEmployeesArray), "utf-8");
 };
+
 //this will initialize the app
 const init = async () => {
   try {

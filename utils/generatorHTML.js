@@ -3,15 +3,18 @@
 // const Intern = require("../Team-Profile-Generator/Lib/Intern");
 // const Employee = require("../Team-Profile-Generator/Lib/Employee");
 
+const Manager = require("../lib/Manager");
+const Engineer = require("../lib/Engineer");
+const Intern = require("../lib/Intern");
+
 const generateManagerCard = (employee) => {
   return `<div class="col-sm-6 col-md-4 col-lg-3 mt-3">
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Manager</h5>
-      <div class="card-text">Name: ${employee.employeeName}</div>
-      <div class="card-text">Id: ${employee.employeeId}</div>
-      <div class="card-text">Email: ${employee.employeeEmail}</div>
-      <div class="card-text">Office Number: ${employee.officeNumber}</div>
+      <div class="card-text">Name: ${employee.name}</div>
+      <div class="card-text">Id: ${employee.id}</div>
+      <div class="card-text">Email: ${employee.email}</div>
     </div>
   </div>
 </div>`;
@@ -22,9 +25,9 @@ const generateEngineerCard = (employee) => {
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Engineer</h5>
-      <div class="card-text">Name: ${employee.employeeName}</div>
-      <div class="card-text">Id: ${employee.employeeId}</div>
-      <div class="card-text">Email: ${employee.employeeEmail}</div>
+      <div class="card-text">Name: ${employee.name}</div>
+      <div class="card-text">Id: ${employee.id}</div>
+      <div class="card-text">Email: ${employee.email}</div>
       <div class="card-text">GitHub Profile: https://github.com/omar20222222/Team-Profile-Generator/blob/main/Lib/Engineer.js}</div>
     </div>
   </div>
@@ -36,29 +39,28 @@ const generateInternCard = (employee) => {
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Intern</h5>
-      <div class="card-text">Name: ${employee.employeeName}</div>
-      <div class="card-text">Id: ${employee.employeeId}</div>
-      <div class="card-text">Email: ${employee.employeeEmail}</div>
-      <div class="card-text">School: ${employee.schoolName}</div>
+      <div class="card-text">Name: ${employee.name}</div>
+      <div class="card-text">Id: ${employee.id}</div>
+      <div class="card-text">Email: ${employee.email}</div>
     </div>
   </div>
 </div>`;
 };
 
 const generateHTML = (myEmployeesArray) => {
+  const cards = [];
   //generates a card with specific fields to the type of employee (manager, engineer or intern)
   const generateCard = (employee) => {
     if (employee instanceof Manager) {
-      return generateManagerCard(employee);
+      cards.push(generateManagerCard(employee));
     } else if (employee instanceof Engineer) {
-      return generateEngineerCard(employee);
+      cards.push(generateEngineerCard(employee));
     } else if (employee instanceof Intern) {
-      return generateInternCard(employee);
+      cards.push(generateInternCard(employee));
     }
   };
-
   //iterates through the array of employees and generates a card for each one of them
-  const cards = myEmployeesArray.map(generateCard);
+  myEmployeesArray.map((employee) => generateCard(employee));
 
   return `<!DOCTYPE html>
   <html lang="en">
